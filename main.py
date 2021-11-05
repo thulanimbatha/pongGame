@@ -6,4 +6,5 @@ screen.setup(width=1000, height=600)
 screen.bgcolor("black")
 screen.title("Python Pong")
 
-screen.exitonclick()
+
+screen.exitonclick() 
