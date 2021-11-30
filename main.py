@@ -1,6 +1,7 @@
 # main pong file
 from turtle import Screen, width
 from paddle import Paddle
+from ball import Ball
 
 RIGHT_COORD = (350, 0)
 LEFT_COORD = (-350, 0)
@@ -14,9 +15,11 @@ screen.tracer(0)    # stop animation
 right_paddle = Paddle(RIGHT_COORD)
 left_paddle = Paddle(LEFT_COORD)
 
+ball = Ball()
+
 
 screen.listen() # listen for keystrokes
-# control left paddle with: up and down
+# control left paddle with: up- and down
 screen.onkey(right_paddle.up, "Up")
 screen.onkey(right_paddle.down, "Down")
 # control left paddle with: a and z 
