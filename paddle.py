@@ -8,6 +8,17 @@ class Paddle(Turtle):
         super().__init__()
         self.shape("square")
         self.penup()
+        self.speed("fastest")
         self.color("white")
-        self.goto(-500, 0)
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(350, 0)
+        
+    # move the paddle
+    def up(self):
+        new_y_coord = self.ycor() + 20
+        self.goto(self.xcor(), new_y_coord)
+
+    def down(self):
+        new_y_coord = self.ycor() - 20
+        self.goto(self.xcor(), new_y_coord)
         
