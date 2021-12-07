@@ -2,6 +2,7 @@
 from turtle import Screen, width
 from paddle import Paddle
 from ball import Ball
+import time
 
 RIGHT_COORD = (350, 0)
 LEFT_COORD = (-350, 0)
@@ -29,6 +30,8 @@ screen.onkey(left_paddle.down, "z")
 game_on = True
 
 while game_on:
+    time.sleep(0.05)
     screen.update() # update animation
+    ball.move()
 
 screen.exitonclick()
