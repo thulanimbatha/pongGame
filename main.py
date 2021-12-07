@@ -30,7 +30,7 @@ screen.onkey(left_paddle.down, "z")
 game_on = True
 
 while game_on:
-    time.sleep(0.11)
+    time.sleep(0.07)
     screen.update() # update animation
     ball.move()
 
@@ -47,5 +47,12 @@ while game_on:
     # detect paddle collision -> left paddle
     if ball.distance(left_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
+
+    # detect paddle miss
+    if ball.xcor() < -380:
+        ball.reset()
+
+    if ball.xcor() > 380:
+        ball.reset()
 
 screen.exitonclick()
