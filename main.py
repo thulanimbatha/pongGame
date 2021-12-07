@@ -30,7 +30,7 @@ screen.onkey(left_paddle.down, "z")
 game_on = True
 
 while game_on:
-    time.sleep(0.05)
+    time.sleep(0.11)
     screen.update() # update animation
     ball.move()
 
@@ -38,6 +38,14 @@ while game_on:
     if ball.ycor() > 280 or ball.ycor() < -280:
         # bounce wall
         # reverse direction
-        ball.bounce()
+        ball.bounce_y()
+
+    # detect paddle collision -> right paddle
+    if ball.distance(right_paddle) < 50 and ball.xcor() > 320:
+        ball.bounce_x()
+    
+    # detect paddle collision -> left paddle
+    if ball.distance(left_paddle) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
 
 screen.exitonclick()
