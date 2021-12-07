@@ -2,6 +2,7 @@
 from turtle import Screen, width
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 RIGHT_COORD = (350, 0)
@@ -17,6 +18,7 @@ right_paddle = Paddle(RIGHT_COORD)
 left_paddle = Paddle(LEFT_COORD)
 
 ball = Ball()
+scoreboard = Scoreboard()
 
 
 screen.listen() # listen for keystrokes
@@ -48,11 +50,14 @@ while game_on:
     if ball.distance(left_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
 
-    # detect paddle miss
+    # detect left paddle miss
     if ball.xcor() < -380:
         ball.reset()
+        scoreboard.right_point()
 
+    # detect right paddle miss
     if ball.xcor() > 380:
         ball.reset()
+        scoreboard.left_point()
 
 screen.exitonclick()
