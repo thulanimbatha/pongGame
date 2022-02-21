@@ -32,7 +32,7 @@ screen.onkey(left_paddle.down, "z")
 game_on = True
 
 while game_on:
-    time.sleep(0.07)
+    time.sleep(ball.ball_speed)
     screen.update() # update animation
     ball.move()
 
